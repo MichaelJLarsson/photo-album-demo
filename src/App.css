@@ -7,11 +7,6 @@ html {
   box-sizing: inherit;
 }
 
-.App {
-  text-align: center;
-  border-block-style: ;
-}
-
 .content {
   text-align: left;
   padding-top: 24px;
@@ -46,4 +41,12 @@ h1 {
   position: absolute;
   top: 12px;
   right: 12px;
+}
+
+.album-list-item {
+  background-color: lightcoral;
+  padding: 12px;
+  color: white;
+  border-radius: 6px;
+  margin-bottom: 24px;
 }
