@@ -1,38 +1,49 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 .App {
   text-align: center;
+  border-block-style: ;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.content {
+  text-align: left;
+  padding-top: 24px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.breadcrumb {
+  margin-bottom: 24px;
+  background-color: #eeeeee;
+  padding: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+h1 {
+  border-bottom: 1px solid black;
+  margin-bottom: 24px;
 }
 
-.App-link {
-  color: #61dafb;
+.userList {
+  margin-bottom: 48px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.userList .col {
+  margin-bottom: 24px;
+}
+
+.userList .user-card-content {
+  position: relative;
+  background-color: lightblue;
+  padding: 12px;
+}
+
+.favorites-icon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
 }
