@@ -1,0 +1,11 @@
+.user-card-content {
+  position: relative;
+  background-color: lightblue;
+  padding: 12px;
+}
+
+.favorites-icon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
