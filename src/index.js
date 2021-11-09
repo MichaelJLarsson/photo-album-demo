@@ -4,6 +4,7 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import User from "./components/User";
 import Users from "./components/Users";
+import Album from "./components/Album/Album";
 
 import "./index.css";
 
@@ -13,6 +14,7 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<Users />} />
         <Route path="user" element={<User />} />
+        <Route path="album" element={<Album />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import Row from 'react-bootstrap/Row';
@@ -9,7 +10,7 @@ const User = () => {
     return (
         <Container className="content">
             <Breadcrumb>
-                <Breadcrumb.Item href="/">Users</Breadcrumb.Item>
+                <Breadcrumb.Item linkAs={Link} linkProps={{ to: '/' }}>Users</Breadcrumb.Item>
                 <Breadcrumb.Item active="true">Tobias</Breadcrumb.Item>
             </Breadcrumb>
 
@@ -30,32 +31,37 @@ const User = () => {
             <Row xs={2} md={3} lg={4} xl={5}>
                 <Col>
                     <div className="album-list-item">
-                        My photo album!
+                        <Link to="/album">My photo album!</Link>
                     </div>
                 </Col>
                 <Col>
                     <div className="album-list-item">
-                        My photo album!
+                        <Link to="/album">My photo album!</Link>
                     </div>
                 </Col>
                 <Col>
                     <div className="album-list-item">
-                        My photo album!
+                        <Link to="/album">My photo album!</Link>
                     </div>
                 </Col>
                 <Col>
                     <div className="album-list-item">
-                        My photo album!
+                        <Link to="/album">My photo album!</Link>
                     </div>
                 </Col>
                 <Col>
                     <div className="album-list-item">
-                        My photo album!
+                        <Link to="/album">My photo album!</Link>
                     </div>
                 </Col>
                 <Col>
                     <div className="album-list-item">
-                        My photo album!
+                        <Link to="/album">My photo album!</Link>
+                    </div>
+                </Col>
+                <Col>
+                    <div className="album-list-item">
+                        <Link to="/album">My photo album!</Link>
                     </div>
                 </Col>
             </Row>

@@ -50,3 +50,7 @@ h1 {
   border-radius: 6px;
   margin-bottom: 24px;
 }
+
+.center {
+  text-align: center;
+}
