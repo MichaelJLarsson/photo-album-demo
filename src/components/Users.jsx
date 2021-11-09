@@ -3,9 +3,18 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import UserCard from "./UserCard/UserCard";
-import { users } from "../data/users"
+import { users } from "../data/users";
 
 import "../App.css";
+
+const ListUsers = ({ users, showFavorites }) =>
+  users
+    .filter((user) => (showFavorites ? user.isFavorite : !user.isFavorite))
+    .map((user) => (
+      <Col key={user.id}>
+        <UserCard user={user} />
+      </Col>
+    ));
 
 const Users = () => {
   return (
@@ -16,20 +25,12 @@ const Users = () => {
 
       <h1>Favorites</h1>
       <Row xs={2} md={3} lg={4} xl={5} className="userList">
-        { users.filter(user => user.isFavorite).map(user => (
-          <Col>
-            <UserCard user={user} />
-          </Col>
-        ))}
+        <ListUsers users={users} showFavorites={true} />
       </Row>
 
       <h1>Users</h1>
       <Row xs={2} md={3} lg={4} xl={5} className="userList">
-        { users.filter(user => !user.isFavorite).map(user => (
-          <Col>
-            <UserCard user={user} />
-          </Col>
-        ))}
+        <ListUsers users={users} showFavorites={false} />
       </Row>
     </Container>
   );

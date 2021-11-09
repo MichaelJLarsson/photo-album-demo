@@ -14,9 +14,9 @@ const FavoriteIcon = (props) => (
 
 const UserCard = (props) => {
   return (
-    <div className="user-card-content" key={props.user.id}>
+    <div className="user-card-content">
       <p>
-        <Link to="/user">
+        <Link to={`/${props.user.id}`}>
           <strong>{props.user.name}</strong>
         </Link>
         <br />
