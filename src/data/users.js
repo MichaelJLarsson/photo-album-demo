@@ -1,3 +1,11 @@
+const albums = [
+  {
+    name: "My vacation",
+    slug: "my-vacation",
+    photos: [0, 1, 2, 3, 4, 5, 6, 7],
+  },
+];
+
 export const users = [
   {
     id: 0,
@@ -6,13 +14,7 @@ export const users = [
     email: "mikael.larsson@bontouch.com",
     address: "Kungsgatan 55, 122 33 Stockholm",
     isFavorite: false,
-    albums: [
-      {
-        name: "My vacation",
-        slug: "my-vacation",
-        photos: [0, 1, 2, 3, 4, 5, 6, 7],
-      },
-    ],
+    albums,
   },
   {
     id: 1,
@@ -21,6 +23,7 @@ export const users = [
     email: "mikael.larsson@bontouch.com",
     address: "Kungsgatan 55, 122 33 Stockholm",
     isFavorite: false,
+    albums,
   },
   {
     id: 2,
@@ -29,6 +32,7 @@ export const users = [
     email: "mikael.larsson@bontouch.com",
     address: "Kungsgatan 55, 122 33 Stockholm",
     isFavorite: false,
+    albums,
   },
   {
     id: 3,
@@ -37,5 +41,6 @@ export const users = [
     email: "mikael.larsson@bontouch.com",
     address: "Kungsgatan 55, 122 33 Stockholm",
     isFavorite: false,
+    albums,
   },
 ];
