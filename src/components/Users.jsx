@@ -4,12 +4,21 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import UserCard from "./UserCard/UserCard";
-import { users as usersData } from "../data/users";
+import { users as userData } from "../data/users";
 
 import "../App.css";
 
+const setStoredUsers = (users) => {
+  localStorage.setItem('users', JSON.stringify(users));
+}
+
+const getStoredUsers = () => {
+  return JSON.parse(localStorage.getItem('users'));
+}
+
 const Users = () => {
-  const [users, setUsers] = useState(usersData);
+  const storedUsers = getStoredUsers();
+  const [users, setUsers] = useState(storedUsers ? storedUsers : userData);
 
   const updateFavorites = (userId) => {
     const updatedUsers = users.map((user) => {
@@ -19,6 +28,7 @@ const Users = () => {
       return user;
     });
     setUsers([...updatedUsers]);
+    setStoredUsers(updatedUsers);
   };
 
   const ListUsers = ({ users, showFavorites }) => {

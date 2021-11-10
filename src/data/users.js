@@ -5,7 +5,7 @@ export const users = [
     company: "Bontouch AB",
     email: "mikael.larsson@bontouch.com",
     address: "Kungsgatan 55, 122 33 Stockholm",
-    isFavorite: true,
+    isFavorite: false,
     albums: [
       {
         name: "My vacation",
@@ -20,7 +20,7 @@ export const users = [
     company: "Bontouch AB",
     email: "mikael.larsson@bontouch.com",
     address: "Kungsgatan 55, 122 33 Stockholm",
-    isFavorite: true,
+    isFavorite: false,
   },
   {
     id: 2,
@@ -32,7 +32,7 @@ export const users = [
   },
   {
     id: 3,
-    name: "Mikael Larsson 2",
+    name: "Mikael Larsson 3",
     company: "Bontouch AB",
     email: "mikael.larsson@bontouch.com",
     address: "Kungsgatan 55, 122 33 Stockholm",
