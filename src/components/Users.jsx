@@ -1,22 +1,36 @@
+import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import UserCard from "./UserCard/UserCard";
-import { users } from "../data/users";
+import { users as usersData } from "../data/users";
 
 import "../App.css";
 
-const ListUsers = ({ users, showFavorites }) =>
-  users
-    .filter((user) => (showFavorites ? user.isFavorite : !user.isFavorite))
-    .map((user) => (
-      <Col key={user.id}>
-        <UserCard user={user} />
-      </Col>
-    ));
-
 const Users = () => {
+  const [users, setUsers] = useState(usersData);
+
+  const updateFavorites = (userId) => {
+    const updatedUsers = users.map((user) => {
+      if (user.id === userId) {
+        user.isFavorite = !user.isFavorite;
+      }
+      return user;
+    });
+    setUsers([...updatedUsers]);
+  };
+
+  const ListUsers = ({ users, showFavorites }) => {
+    return users
+      .filter((user) => (showFavorites ? user.isFavorite : !user.isFavorite))
+      .map((user, index) => (
+        <Col key={user.id}>
+          <UserCard user={user} handleFavoritesClick={updateFavorites} />
+        </Col>
+      ));
+  };
+
   return (
     <Container className="content">
       <Breadcrumb>

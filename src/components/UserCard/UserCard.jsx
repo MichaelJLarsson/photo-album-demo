@@ -5,11 +5,13 @@ import { faStar as starOutlined } from "@fortawesome/free-regular-svg-icons";
 
 import "./user-card.css";
 
-const FavoriteIcon = (props) => (
-  <FontAwesomeIcon
-    icon={props.filled ? starFilled : starOutlined}
-    className="favorites-icon"
-  />
+const FavoriteButton = (props) => (
+  <button
+    onClick={() => props.clickHandler(props.userId)}
+    className="favorites-button"
+  >
+    <FontAwesomeIcon icon={props.filled ? starFilled : starOutlined} />
+  </button>
 );
 
 const UserCard = (props) => {
@@ -23,7 +25,11 @@ const UserCard = (props) => {
         {props.user.company}
         <br />
         <a href={props.user.email}>{props.user.email}</a>
-        <FavoriteIcon filled={props.user.isFavorite} />
+        <FavoriteButton
+          filled={props.user.isFavorite}
+          clickHandler={props.handleFavoritesClick}
+          userId={props.user.id}
+        />
       </p>
     </div>
   );
