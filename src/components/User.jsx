@@ -9,7 +9,9 @@ import "../App.css";
 
 const User = () => {
   let { userId } = useParams();
+  // eslint-disable-next-line
   const user = users.find(item => item.id == userId);
+  
   return (
     <Container className="content">
       <Breadcrumb>
