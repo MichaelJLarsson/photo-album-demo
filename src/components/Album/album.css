@@ -14,8 +14,6 @@
 }
 
 .lightBox {
-  min-width: hv(100);
-  min-height: vw(100);
   top: 0;
   right: 0;
   left: 0;
@@ -27,8 +25,19 @@
   justify-content: center;
 }
 
-.lightBox img {
-  border: 12px solid white;
-  width: 80vw;
+.lightBox .imageContainer {
+  width: 80%;
+  padding-bottom: 51%;
+  position: relative;
+  background-color: #ffffff;
   box-shadow: 0 0 49px rgb(0 0 0 / 15%);
+}
+
+.lightBox .imageContainer img {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  left: 0;
+  top: 0;
+  border: 12px solid white;
 }

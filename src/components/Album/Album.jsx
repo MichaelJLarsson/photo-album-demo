@@ -55,7 +55,9 @@ const Album = () => {
 
       { isOpen && (
         <div className="lightBox" onClick={ hideLightBox }>
-          <img src={`${currentImage}/800/500/`} alt="" />
+          <div className="imageContainer">
+            <img src={`${currentImage}/800/500/`} alt="" />
+          </div>
         </div>
       ) }
     </Container>
