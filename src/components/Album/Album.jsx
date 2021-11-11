@@ -34,9 +34,11 @@ const Album = () => {
       </Row>
 
       <Row xs={2} md={3} lg={4} xl={5}>
-        { album.photos.map(photo => (
-          <Col key={ photo }>
-            <div className="thumbnail">{ photo }</div>
+        { album.photos.map((photo, index) => (
+          <Col key={ index }>
+            <div className="thumbnail">
+              <img src={ photo } alt="" />
+            </div>
           </Col>
         )) }
       </Row>

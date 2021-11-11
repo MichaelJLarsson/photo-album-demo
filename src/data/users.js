@@ -2,7 +2,16 @@ const albums = [
   {
     name: "My vacation",
     slug: "my-vacation",
-    photos: [0, 1, 2, 3, 4, 5, 6, 7],
+    photos: [
+      "https://picsum.photos/id/1001/240/200/",
+      "https://picsum.photos/id/1002/240/200/",
+      "https://picsum.photos/id/1003/240/200/",
+      "https://picsum.photos/id/1005/240/200/",
+      "https://picsum.photos/id/1006/240/200/",
+      "https://picsum.photos/id/1008/240/200/",
+      "https://picsum.photos/id/1009/240/200/",
+      "https://picsum.photos/id/1010/240/200/",
+    ],
   },
 ];
 
