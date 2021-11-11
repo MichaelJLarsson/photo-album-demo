@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import Row from "react-bootstrap/Row";
@@ -13,6 +14,15 @@ const Album = () => {
   const user = users.find(item => item.id == userId);
   // eslint-disable-next-line
   const album = user.albums.find(album => album.slug == albumSlug);
+
+  const [isOpen, setIsOpen] = useState(false);
+  const [currentImage, setCurrentImage] = useState('');
+  const hideLightBox = () => setIsOpen(false);
+  const openLightBox = (index) => {
+    const image = album.photos[index];
+    setCurrentImage(image);
+    setIsOpen(true);
+  }
   
   return (
     <Container className="content albumn">
@@ -37,15 +47,17 @@ const Album = () => {
         { album.photos.map((photo, index) => (
           <Col key={ index }>
             <div className="thumbnail">
-              <img src={ photo } alt="" />
+              <img src={ `${photo}/240/200/` } alt="" onClick={() => openLightBox(index)} />
             </div>
           </Col>
         )) }
       </Row>
 
-      <div className="lightBox">
-        <img src="https://picsum.photos/id/1001/800/500/" alt="" />
-      </div>
+      { isOpen && (
+        <div className="lightBox" onClick={ hideLightBox }>
+          <img src={`${currentImage}/800/500/`} alt="" />
+        </div>
+      ) }
     </Container>
   );
 };
