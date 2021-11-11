@@ -15,7 +15,7 @@ const Album = () => {
   const album = user.albums.find(album => album.slug == albumSlug);
   
   return (
-    <Container className="content">
+    <Container className="content albumn">
       <Breadcrumb>
         <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/" }}>
           Users
@@ -42,6 +42,10 @@ const Album = () => {
           </Col>
         )) }
       </Row>
+
+      <div className="lightBox">
+        <img src="https://picsum.photos/id/1001/800/500/" alt="" />
+      </div>
     </Container>
   );
 };
