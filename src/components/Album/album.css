@@ -6,6 +6,7 @@
   height: 200px;
   margin-bottom: 24px;
   overflow: hidden;
+  background-color: #eeeeee;
 }
 
 .thumbnail img {
