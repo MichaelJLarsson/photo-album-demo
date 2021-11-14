@@ -4,22 +4,21 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import UserCard from "./UserCard/UserCard";
-// import { users as userData } from "../data/users";
 
 import "../App.css";
 
-// const setStoredUsers = (users) => {
-//   localStorage.setItem('users', JSON.stringify(users));
-// }
+const setStoredUsers = (users) => {
+  localStorage.setItem('users', JSON.stringify(users));
+}
 
-// const getStoredUsers = () => {
-//   return JSON.parse(localStorage.getItem('users'));
-// }
+const getStoredUsers = () => {
+  return JSON.parse(localStorage.getItem('users'));
+}
 
 const Users = () => {
-  // const storedUsers = getStoredUsers();
+  const storedUsers = getStoredUsers();
   const [users, setUsers] = useState([]);
-  const [favoriteUsers, setFavoriteUsers] = useState([]);
+  const [favoriteUsers, setFavoriteUsers] = useState(storedUsers);
 
   useEffect(() => {
     const url = 'https://jsonplaceholder.typicode.com/users';
@@ -43,7 +42,7 @@ const Users = () => {
       favoriteUsers.push(userId);
     }
     setFavoriteUsers([...favoriteUsers]);
-    // setStoredUsers(updatedUsers);
+    setStoredUsers(favoriteUsers);
   };
 
   const ListUsers = ({ users, showFavorites }) => {
@@ -57,7 +56,11 @@ const Users = () => {
       })
       .map((user) => (
         <Col key={user.id}>
-          <UserCard user={user} handleFavoritesClick={updateFavorites} />
+          <UserCard
+            user={user}
+            handleFavoritesClick={updateFavorites}
+            isFavorite={ favoriteUsers.includes(user.id) }
+          />
         </Col>
       ));
   };

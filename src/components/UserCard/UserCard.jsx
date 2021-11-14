@@ -26,7 +26,7 @@ const UserCard = (props) => {
         <br />
         <a href={props.user.email}>{props.user.email}</a>
         <FavoriteButton
-          filled={props.user.isFavorite}
+          filled={props.isFavorite}
           clickHandler={props.handleFavoritesClick}
           userId={props.user.id}
         />
