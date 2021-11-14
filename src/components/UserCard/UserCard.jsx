@@ -22,7 +22,7 @@ const UserCard = (props) => {
           <strong>{props.user.name}</strong>
         </Link>
         <br />
-        {props.user.company}
+        { props.user.company.name }
         <br />
         <a href={props.user.email}>{props.user.email}</a>
         <FavoriteButton

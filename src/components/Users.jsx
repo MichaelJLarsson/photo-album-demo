@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -18,7 +18,21 @@ const getStoredUsers = () => {
 
 const Users = () => {
   const storedUsers = getStoredUsers();
-  const [users, setUsers] = useState(storedUsers ? storedUsers : userData);
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    const url = 'https://jsonplaceholder.typicode.com/users';
+    const fetchData = async () => {
+      try {
+        const response = await fetch(url);
+        const json = await response.json();
+        setUsers(json);
+      } catch (error) {
+        console.warn('Error', error);
+      }
+    }
+    fetchData();
+  }, []);
 
   const updateFavorites = (userId) => {
     const updatedUsers = users.map((user) => {
@@ -34,7 +48,7 @@ const Users = () => {
   const ListUsers = ({ users, showFavorites }) => {
     return users
       .filter((user) => (showFavorites ? user.isFavorite : !user.isFavorite))
-      .map((user, index) => (
+      .map((user) => (
         <Col key={user.id}>
           <UserCard user={user} handleFavoritesClick={updateFavorites} />
         </Col>
