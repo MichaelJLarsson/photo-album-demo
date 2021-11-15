@@ -14,7 +14,7 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<Users />} />
         <Route path=":userId" element={<User />} />
-        <Route path=":userId/:albumSlug" element={<Album />} />
+        <Route path=":userId/:albumId" element={<Album />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
