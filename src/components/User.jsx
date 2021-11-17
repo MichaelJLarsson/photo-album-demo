@@ -4,41 +4,21 @@ import Container from "react-bootstrap/Container";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import fetchData from "../utils/fetch-data";
+import constants from '../data/constants.js';
 
 import "../App.css";
 
+const { API_BASE_URL} = constants;
+
 const User = () => {
   let { userId } = useParams();
-
   const [user, setUser] = useState({});
   const [albums, setAlbums] = useState([]);
 
   useEffect(() => {
-    const url = `https://jsonplaceholder.typicode.com/users/${userId}`;
-    const fetchData = async () => {
-      try {
-        const response = await fetch(url);
-        const json = await response.json();
-        setUser(json);
-      } catch (error) {
-        console.warn('Error', error);
-      }
-    }
-    fetchData();
-  }, [userId]);
-  
-  useEffect(() => {
-    const url = `https://jsonplaceholder.typicode.com/users/${userId}/albums`;
-    const fetchData = async () => {
-      try {
-        const response = await fetch(url);
-        const json = await response.json();
-        setAlbums(json);
-      } catch (error) {
-        console.warn('Error', error);
-      }
-    }
-    fetchData();
+    fetchData(`${API_BASE_URL}/users/${userId}`, setUser);
+    fetchData(`${API_BASE_URL}/users/${userId}/albums`, setAlbums);
   }, [userId]);
   
   return (

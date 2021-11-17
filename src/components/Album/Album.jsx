@@ -4,8 +4,12 @@ import Breadcrumb from "react-bootstrap/Breadcrumb";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Link, useParams } from "react-router-dom";
+import constants from '../../data/constants.js';
+import fetchData from "../../utils/fetch-data";
 
 import "./album.css";
+
+const { API_BASE_URL} = constants;
 
 const Album = () => {
   let { userId, albumId } = useParams();
@@ -15,55 +19,10 @@ const Album = () => {
   const [album, setAlbum] = useState({});
   const [photos, setPhotos] = useState([]);
 
-  /**
-   * Fetch user
-   */
   useEffect(() => {
-    const url = `https://jsonplaceholder.typicode.com/users/${userId}`;
-    const fetchData = async () => {
-      try {
-        const response = await fetch(url);
-        const json = await response.json();
-        setUser(json);
-      } catch (error) {
-        console.warn('Error', error);
-      }
-    }
-    fetchData();
-  }, [userId]);
-
-  /**
-   * Fetch album
-   */
-  useEffect(() => {
-    const url = `https://jsonplaceholder.typicode.com/albums/${albumId}`;
-    const fetchData = async () => {
-      try {
-        const response = await fetch(url);
-        const json = await response.json();
-        setAlbum(json);
-      } catch (error) {
-        console.warn('Error', error);
-      }
-    }
-    fetchData();
-  }, [albumId]);
-  
-  /**
-   * Fetch photos
-   */
-  useEffect(() => {
-    const url = `https://jsonplaceholder.typicode.com/albums/${albumId}/photos`;
-    const fetchData = async () => {
-      try {
-        const response = await fetch(url);
-        const json = await response.json();
-        setPhotos(json);
-      } catch (error) {
-        console.warn('Error', error);
-      }
-    }
-    fetchData();
+    fetchData(`${API_BASE_URL}/users/${userId}`, setUser);
+    fetchData(`${API_BASE_URL}/albums/${albumId}`, setAlbum);
+    fetchData(`${API_BASE_URL}/albums/${albumId}/photos`, setPhotos);
   }, [userId, albumId]);
 
   const hideLightBox = () => setIsOpen(false);
@@ -83,7 +42,7 @@ const Album = () => {
         <Breadcrumb.Item linkAs={Link} linkProps={{ to: `/${userId}` }}>
           { user.name }
         </Breadcrumb.Item>
-        <Breadcrumb.Item active="true">{ album.name }</Breadcrumb.Item>
+        <Breadcrumb.Item active="true">{ album.title }</Breadcrumb.Item>
       </Breadcrumb>
 
       <Row>

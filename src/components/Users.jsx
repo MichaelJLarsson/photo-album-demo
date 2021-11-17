@@ -4,8 +4,12 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import UserCard from "./UserCard/UserCard";
+import constants from '../data/constants.js';
+import fetchData from "../utils/fetch-data";
 
 import "../App.css";
+
+const { API_BASE_URL} = constants;
 
 const setStoredUsers = (users) => {
   localStorage.setItem('users', JSON.stringify(users));
@@ -21,17 +25,7 @@ const Users = () => {
   const [favoriteUsers, setFavoriteUsers] = useState(storedUsers);
 
   useEffect(() => {
-    const url = 'https://jsonplaceholder.typicode.com/users';
-    const fetchData = async () => {
-      try {
-        const response = await fetch(url);
-        const json = await response.json();
-        setUsers(json);
-      } catch (error) {
-        console.warn('Error', error);
-      }
-    }
-    fetchData();
+    fetchData(`${API_BASE_URL}/users/`, setUsers);
   }, []);
 
   const updateFavorites = (userId) => {
