@@ -6,6 +6,7 @@ import Col from "react-bootstrap/Col";
 import { Link, useParams } from "react-router-dom";
 import constants from '../../data/constants.js';
 import fetchData from "../../utils/fetch-data";
+import classNames from "classnames";
 
 import "./album.css";
 
@@ -62,13 +63,11 @@ const Album = () => {
         )) }
       </Row>
 
-      { isOpen && (
-        <div className="lightBox" onClick={ hideLightBox }>
-          <div className="imageContainer">
-            <img src={`${currentImage.url}`} alt="" />
-          </div>
+      <div className={classNames('lightBox', { open: isOpen })} onClick={ hideLightBox }>
+        <div className="imageContainer">
+          <img src={`${currentImage.url}`} alt="" />
         </div>
-      ) }
+      </div>
     </Container>
   );
 };
