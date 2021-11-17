@@ -16,7 +16,8 @@ const setStoredUsers = (users) => {
 }
 
 const getStoredUsers = () => {
-  return JSON.parse(localStorage.getItem('users'));
+  const response = JSON.parse(localStorage.getItem('users'));
+  return response ? response : [];
 }
 
 const Users = () => {
