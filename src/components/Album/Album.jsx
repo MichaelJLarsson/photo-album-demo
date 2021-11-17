@@ -9,7 +9,6 @@ import "./album.css";
 
 const Album = () => {
   let { userId, albumId } = useParams();
-
   const [isOpen, setIsOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState('');
   const [user, setUser] = useState({});
@@ -59,7 +58,6 @@ const Album = () => {
       try {
         const response = await fetch(url);
         const json = await response.json();
-        console.log('json response', json);
         setPhotos(json);
       } catch (error) {
         console.warn('Error', error);
@@ -75,10 +73,6 @@ const Album = () => {
     setCurrentImage(image);
     setIsOpen(true);
   }
-
-  console.log('user', user);
-  console.log('album', album);
-  console.log('photos', photos);
   
   return (
     <Container className="content albumn">
@@ -94,14 +88,14 @@ const Album = () => {
 
       <Row>
         <Col className="center">
-          <h2>{ album.name }</h2>
+          <h2>{ album.title }</h2>
           <p>{ photos.length } photos</p>
         </Col>
       </Row>
 
       <Row xs={2} md={3} lg={4} xl={5}>
-        { photos.map((photo, index) => (
-          <Col key={ index }>
+        { photos.map((photo) => (
+          <Col key={ photo.id }>
             <div className="thumbnail">
               <img src={ photo.thumbnailUrl } alt="" onClick={() => openLightBox(photo.id)} />
             </div>
@@ -112,7 +106,7 @@ const Album = () => {
       { isOpen && (
         <div className="lightBox" onClick={ hideLightBox }>
           <div className="imageContainer">
-            <img src={`${currentImage}/800/500/`} alt="" />
+            <img src={`${currentImage.url}`} alt="" />
           </div>
         </div>
       ) }
