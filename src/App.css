@@ -28,22 +28,6 @@ h1 {
   margin-bottom: 24px;
 }
 
-.userList {
-  margin-bottom: 48px;
-}
-
-.userList .col {
-  margin-bottom: 24px;
-}
-
-.album-list-item {
-  background-color: lightcoral;
-  padding: 12px;
-  color: white;
-  border-radius: 6px;
-  margin-bottom: 24px;
-}
-
 .center {
   text-align: center;
 }

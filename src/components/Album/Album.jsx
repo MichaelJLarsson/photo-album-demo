@@ -36,6 +36,10 @@ const Album = () => {
     setCurrentImage(image);
     setIsOpen(true);
   }
+
+  /**
+   * @todo Add "no-content" block when photo list is empty
+   */
   
   return (
     <Container className="content albumn">

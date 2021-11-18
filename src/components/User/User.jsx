@@ -4,10 +4,11 @@ import Container from "react-bootstrap/Container";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import fetchData from "../utils/fetch-data";
-import constants from '../data/constants.js';
+import fetchData from "../../utils/fetch-data";
+import constants from '../../data/constants.js';
 
-import "../App.css";
+import "../../App.css";
+import "./user.css";
 
 const { API_BASE_URL} = constants;
 
@@ -20,6 +21,10 @@ const User = () => {
     fetchData(`${API_BASE_URL}/users/${userId}`, setUser);
     fetchData(`${API_BASE_URL}/users/${userId}/albums`, setAlbums);
   }, [userId]);
+
+  /**
+   * @todo Add "no-content" block when albums list is empty
+   */
   
   return (
     <Container className="content">

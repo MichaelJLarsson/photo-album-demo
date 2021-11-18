@@ -3,11 +3,12 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
-import UserCard from "./UserCard/UserCard";
-import constants from '../data/constants.js';
-import fetchData from "../utils/fetch-data";
+import UserCard from "../UserCard/UserCard";
+import constants from '../../data/constants.js';
+import fetchData from "../../utils/fetch-data";
 
-import "../App.css";
+import "../../App.css";
+import "./users.css";
 
 const { API_BASE_URL} = constants;
 
@@ -59,6 +60,12 @@ const Users = () => {
         </Col>
       ));
   };
+
+  /**
+   * @todo Make a grid component that render the exact same grid
+   * in all the views.
+   * @todo Add "no-content" blocks when users list is empty
+   */
 
   return (
     <Container className="content">
