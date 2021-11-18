@@ -26,7 +26,10 @@ const Album = () => {
     fetchData(`${API_BASE_URL}/albums/${albumId}/photos`, setPhotos);
   }, [userId, albumId]);
 
-  const hideLightBox = () => setIsOpen(false);
+  const hideLightBox = () => {
+    setCurrentImage('')
+    setIsOpen(false)
+  };
   
   const openLightBox = (photoId) => {
     const image = photos.find(photo => photo.id === photoId);

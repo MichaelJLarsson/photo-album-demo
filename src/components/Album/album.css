@@ -37,8 +37,8 @@
 }
 
 .lightBox .imageContainer {
-  width: 80%;
-  padding-bottom: 80%;
+  width: 80vw;
+  padding-bottom: 80vw;
   position: relative;
   background-color: #ffffff;
   box-shadow: 0 0 49px rgb(0 0 0 / 15%);
@@ -55,4 +55,11 @@
   width: 100%;
   height: auto;
   border: 12px solid white;
+}
+
+@media (min-width: 800px) {
+  .lightBox .imageContainer {
+    width: 80vh;
+    padding-bottom: 80vh;
+  }
 }
